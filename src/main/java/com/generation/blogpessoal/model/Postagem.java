@@ -42,6 +42,22 @@ public class Postagem {
 	@JsonIgnoreProperties("postagem")
 	private Usuario usuario;
 	
+	
+	public Postagem(Long id,
+			@NotBlank(message = "O atributo título é Obrigatório!") @Size(min = 5, max = 100, message = "O atributo título deve conter no mínimo 05 e no máximo 100 caracteres") String titulo,
+			@NotBlank(message = "O atributo texto é Obrigatório!") @Size(min = 10, max = 1000, message = "O atributo texto deve conter no mínimo 10 e no máximo 1000 caracteres") String texto,
+			LocalDateTime data) {
+		this.id = id;
+		this.titulo = titulo;
+		this.texto = texto;
+		this.data = data;
+	}
+	
+
+	public Postagem() {
+	}
+
+
 	public Long getId() {
 		return this.id;
 	}
